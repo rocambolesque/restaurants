@@ -24,7 +24,7 @@ ifeq ($(ENVIRONMENT),dev)
 	PYTHONPATH=vendors SETTINGS=settings_$(ENVIRONMENT).py APPLICATION_NAME=restaurants $(VENV_NAME)/bin/python run.py
 endif
 ifeq ($(ENVIRONMENT),prod)
-	PYTHONPATH=vendors SETTINGS=settings_$(ENVIRONMENT).py APPLICATION_NAME=restaurants $(VENV_NAME)/bin/gunicorn app:app
+	PYTHONPATH=vendors SETTINGS=settings_$(ENVIRONMENT).py APPLICATION_NAME=restaurants gunicorn run:app
 endif
 
 doc:
